@@ -9,5 +9,5 @@ function normalizeuri(string $uri): string{
 };
 
 function dispatch(string $uri, string $method): void{
-
+    $uri = normalizeuri($uri); //get clean urls
 }
