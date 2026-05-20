@@ -8,3 +8,5 @@ session_start();
 
 require_once INCLUDES_DIR . '/router.php';
 
+dispatch($_SERVER['REQUEST_URI'], $_SERVER["REQUEST_METHOD"]);//testing the response
+
