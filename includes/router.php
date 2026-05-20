@@ -12,6 +12,10 @@ function normalizeuri(string $uri): string{
     return $uri === INDEX_URI ? INDEX_ROUTE : $uri;
 };
 
+function getFilePath(string $uri, string $method): string{
+    return ROUTES_DIR . '/' . normalizeuri($uri) . '_' . strtolower($method) . '.php'; //Gives us routes/uri/page.php
+}
+
 function notFound(): void{
     http_response_code();
 
@@ -29,5 +33,13 @@ function dispatch(string $uri, string $method): void{
         notFound();
     }
 
+    $filePath = getFilePath($uri, $method);
+
+    if(file_exists($filePath)){
+        include($filePath);
+        return;
+    }
+
+    notFound();
 
 }
