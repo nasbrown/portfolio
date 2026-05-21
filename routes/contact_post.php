@@ -1,6 +1,9 @@
 <?php
 
-//CSRF
+if(!validateCsrfToken($_POST['csrfToken'] ?? null)){
+    addFlashMessage('error', 'Sorry, please send the form again.');
+    redirect('/contact');
+}
 
 $name = $_POST['name'] ?? '';
 
@@ -20,7 +23,11 @@ $inserted = insertMessages(connect(), name: $name, email: $email, message: $mess
 
 if($inserted){
     $safeName =htmlspecialchars($name, ENT_QUOTES, 'UTF-8');
-    echo "Thank you, $safeName for your message! It was stored.";
-    exit;
+    addFlashMessage("success", "Thank you, $safeName, for your message. It was stored.");
+    redirect("/guestbook");
+
 }
-serverError('Could not store the message, Sorry.');
+
+addFlashMessage("error", "Could not store the message, sorry");
+
+redirect("/guestbook");

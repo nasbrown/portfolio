@@ -40,6 +40,11 @@ function serverError(string $message = 'Server Error'): void{
     exit;
 }
 
+function redirect(string $uri): void {
+    header("Location: $uri");
+    exit;
+}
+
 function dispatch(string $uri, string $method): void{
     $uri = normalizeuri($uri); //get clean urls
     $method = strtoupper($method); //make sure method is uppercase either Get or Post

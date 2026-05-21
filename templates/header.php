@@ -102,6 +102,24 @@
         :target {
             scroll-margin-block: 5ex;
         }
+        .flash-messages {
+            margin: 10px 0px;
+        }
+        .flash-message {
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+        .flash-success {
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+            color: #155724;
+        }
+        .flash-error {
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+            color: #721c24;
+        }
     </style>
     <title>Portfolio</title>
 </head>
@@ -117,3 +135,5 @@
     </nav>
 
     <main>
+
+    <?php require_once('_flash.php');
