@@ -17,9 +17,25 @@ function getFilePath(string $uri, string $method): string{
 }
 
 function notFound(): void{
-    http_response_code();
+    http_response_code(404);
 
     echo "404 not found";
+
+    exit;
+}
+
+function badRequest(string $message = 'Bad request'): void{
+    http_response_code(400);
+
+    echo $message;
+
+    exit;
+}
+
+function serverError(string $message = 'Server Error'): void{
+    http_response_code(500);
+
+    echo $message;
 
     exit;
 }

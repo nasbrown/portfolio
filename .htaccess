@@ -1,8 +1,0 @@
-RewriteEngine On
-
-# Ensure the request isn't already for the public folder
-RewriteCond %{REQUEST_URI} !^/public/
-
-# Rewrite everything to the public folder
-RewriteRule ^(.*)$ public/$1 [L]
-
