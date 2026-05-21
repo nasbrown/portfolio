@@ -1,6 +1,6 @@
   </main>
     <footer>
-        &copy; <?= date('Y') ?> Conatct Form. All Rights Reserved.
+        &copy; <?= date('Y') ?> Contact Form. All Rights Reserved.
     </footer>
 </body>
 </html>
