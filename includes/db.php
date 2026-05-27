@@ -13,7 +13,7 @@ function connect(){
 function loadSchema(PDO $pdo, string $schemaFile): void{
     $sql = file_get_contents($schemaFile);
 
-    if(false === $sql){
+    if(!$sql){
         die("Failed to load Schema from file: $schemaFile.");
     }
 
